@@ -1,0 +1,24 @@
+html{
+   scroll-behavior: smooth;
+}
+
+nav {
+   position: fixed;
+   padding: 1rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.navbar-brand {
+   font-family: "EB Garamond";
+   font-style: bold;
+   font-weight: 800;
+}
+
+img {
+   display: block;
+   margin: auto;
+   width: 50%;
+ }
+
