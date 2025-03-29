@@ -1,3 +1,20 @@
+const hiddenElements = document.querySelectorAll('.hidden');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting){
+            entry.target.classList.add('show');
+        }else{
+            entry.target.classList.remove('show');
+        }
+    });
+});
+
+hiddenElements.forEach(element => {
+    observer.observe(element);
+});
+
+
 $(document).ready(function () {
     $(".form-check-input").on("change", function () {
         if ($(".form-check-input:checked").length === $(".form-check-input").length) {
@@ -22,3 +39,16 @@ $(document).ready(function () {
         }
     });
 });
+
+function updateCheckBoxCount(){
+    const total = $(".form-check-input").length;
+    const checked = $(".form-check-input:checked").length;
+    $('#checkboxCount').text(`Checked: ${checked} / ${total}`);
+}
+updateCheckBoxCount();
+
+$(".form-check-input").on("change", function () {
+    updateCheckBoxCount();
+});
+
+
